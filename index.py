@@ -1,10 +1,10 @@
 from faster_whisper import WhisperModel
 import time
 
-model_size = "small"
+model_size = "medim"
 
 # Run on GPU with FP16
-model = WhisperModel(model_size, device="cpu", compute_type="int8")
+model = WhisperModel(model_size, device="cuda", compute_type="float16")
 
 # or run on GPU with INT8
 # model = WhisperModel(model_size, device="cuda", compute_type="int8_float16")
