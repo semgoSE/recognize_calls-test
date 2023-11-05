@@ -19,8 +19,6 @@ def main():
     
     apiKey = request.headers.get("Authorization")
     
-    print(apiKey)
-    
     if (apiKey != "maNTAmbrOpto"):
         return "Bad API key"
     
@@ -35,7 +33,8 @@ def main():
     result = whisperx.align(result["segments"], model_a, metadata, audio, device, return_char_alignments=False)
     print(result["segments"])
     
-    def only_text(segment): 
+    def only_text(segment):
+        print(segment)
         return segment.text
     
     texts = map(only_text, result["segments"])
