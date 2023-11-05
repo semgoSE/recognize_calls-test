@@ -9,7 +9,7 @@ compute_type = "float16"
 
 app = Flask(__name__)
 
-model = whisperx.load_model("small", device, compute_type=compute_type)
+model = whisperx.load_model("medium", device, compute_type=compute_type)
 
 @app.route('/', methods = ["POST"])
 def main():
