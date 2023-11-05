@@ -2,10 +2,10 @@ from flask import Flask, request, jsonify
 import whisperx
 import requests
 
-device = "cpu" 
+device = "cuda" 
 audio_file = "audio.wav"
 batch_size = 1
-compute_type = "int8"
+compute_type = "float16"
 
 app = Flask(__name__)
 
