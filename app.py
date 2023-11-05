@@ -48,4 +48,4 @@ def main():
     # print(diarize_segments)
     # print(result["segments"])    
 if __name__ == '__main__':
-    app.run(debug=False, port=4001)
+    app.run(debug=False, port=4001, host="0.0.0.0")
