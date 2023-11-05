@@ -34,8 +34,7 @@ def main():
     print(result["segments"])
     
     def only_text(segment):
-        print(segment)
-        return segment.text
+        return segment["text"]
     
     texts = map(only_text, result["segments"])
     
