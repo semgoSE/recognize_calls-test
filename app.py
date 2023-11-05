@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify
 import whisperx
+import requests
 
 device = "cpu" 
 audio_file = "audio.wav"
@@ -11,8 +12,16 @@ app = Flask(__name__)
 model = whisperx.load_model("medium", device, compute_type=compute_type)
 
 @app.route('/')
-def main(): 
+def main():
     content = request.json
+    
+    # apiKey = request.headers.get("Authorization")
+    
+    # if (apiKey != "maNTAmbrOpto"):
+    #     return "Bad API key"
+    
+    # r = requests.get(content.fileUrl, allow_redirects=True)
+    # open('audio.wav', 'wb').write(r.content)
 
     audio = whisperx.load_audio(audio_file)
     result = model.transcribe(audio, batch_size=1)
