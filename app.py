@@ -27,18 +27,16 @@ def main():
 
     audio = whisperx.load_audio(audio_file)
     result = model.transcribe(audio, batch_size=1, language=content['language'])
-    print(result["segments"])
 
     model_a, metadata = whisperx.load_align_model(language_code=result["language"], device=device)
     result = whisperx.align(result["segments"], model_a, metadata, audio, device, return_char_alignments=False)
-    print(result["segments"])
     
     def only_text(segment):
         return segment["text"]
     
     texts = map(only_text, result["segments"])
     
-    return jsonify({ text: " ".join(texts)})
+    return jsonify({ "text":" ".join(texts)})
     
     # diarize_model = whisperx.DiarizationPipeline(use_auth_token="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", device=device)
 
