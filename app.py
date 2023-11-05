@@ -47,5 +47,5 @@ def main():
     # result = whisperx.assign_word_speakers(diarize_segments, result)
     # print(diarize_segments)
     # print(result["segments"])    
-    
-    return 'Hello, World!'
+if __name__ == '__main__':
+    app.run(debug=False, port=4001)
