@@ -34,14 +34,11 @@ def main():
     print(result["segments"])
     
     def only_text(segment):
-        print(segment["text"])
         return segment["text"]
     
     texts = map(only_text, result["segments"])
     
-    print("".join(texts))
-    
-    return 'ok'
+    return jsonify({ text: " ".join(texts)})
     
     # diarize_model = whisperx.DiarizationPipeline(use_auth_token="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", device=device)
 
