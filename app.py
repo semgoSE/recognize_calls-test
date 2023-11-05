@@ -19,6 +19,8 @@ def main():
     
     apiKey = request.headers.get("Authorization")
     
+    print(apiKey)
+    
     if (apiKey != "maNTAmbrOpto"):
         return "Bad API key"
     
