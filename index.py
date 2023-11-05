@@ -3,20 +3,20 @@ import time
 import subprocess
 import os;
 
-path = "audio.wav"
-model_size = "medium"
+# path = "audio.wav"
+# model_size = "medium"
 
-nemo_process = subprocess.Popen(
-    ["python3", "nemo_process.py", "-a", path, "--device", "cuda"],
-)
-model = WhisperModel(model_size, device="cuda", compute_type="float16")
+# nemo_process = subprocess.Popen(
+#     ["python3", "nemo_process.py", "-a", path, "--device", "cuda"],
+# )
+# model = WhisperModel(model_size, device="cpu", compute_type="int8")
 
-segments, info = model.transcribe(path, beam_size=1, best_of=3)
+# segments, info = model.transcribe(path, beam_size=1, best_of=3)
 
-print("Detected language '%s' with probability %f" % (info.language, info.language_probability))
+# print("Detected language '%s' with probability %f" % (info.language, info.language_probability))
 
-for segment in segments:
-    print("[%.2fs -> %.2fs] %s" % (segment.start, segment.end, segment.text))
+# for segment in segments:
+#     print("[%.2fs -> %.2fs] %s" % (segment.start, segment.end, segment.text))
     
     
 # nemo_process.communicate()
